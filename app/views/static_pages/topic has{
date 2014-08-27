@@ -1,0 +1,23 @@
+topic has{
+	name;
+	subtopic has{
+		name;
+		article/video has {
+			link;
+			screenshot;
+			title;
+			tags has{
+				name
+			}
+			comment has{
+				user_who_submitted;
+				time_submitted;
+				up_or_down_votes;
+				replies;
+			}
+			user_who_submitted;
+			time_submitted;
+			up_or_down_votes;
+		}
+	}
+}
