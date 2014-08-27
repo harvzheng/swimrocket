@@ -1,0 +1,30 @@
+<div class="page-bar" style = "">
+            <ul class="page-breadcrumb" style="margin-right: 10px">
+              <li>
+                <i class="fa fa-home"></i>
+                <%= link_to "Home", root_path%>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="topicspage"><%=@topic.name%></a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href=""><%=@subtopic.name%></a>
+              </li>
+            </ul>
+          </div>
+          <div class = "row">
+            <div class = "col-md-2">
+            <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+      			<% @subjects.each do |subject|%>
+      				<li><a href="#"><%= subject.name%></a></li>
+      			<% end %>
+    		</ul>
+            </div>
+            <div class= "col-md-2"><a href="contentpage" class="content-title"><img class = "thumbnail-content"src="https://i.ytimg.com/vi/2alP2ZlmmFA/mqdefault.jpg"/></a></div>
+            <div class= "col-md-4"><a href="contentpage" class="content-title">MICHAEL PHELPS RACE AND WHATNOT</a>
+              <p class = "content-description">He be racing a race where he is racing and beats some people and does things such as races am i being clear enough that michael phelps is racing in this video i know i have a runon sentence lorem ipsum blah</p>
+              <p class = "submitted-by">SUBMITTED BY LOREMIPSUM 4 HOURS AGO</p>
+            </div>
+          </div>

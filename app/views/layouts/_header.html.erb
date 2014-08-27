@@ -1,3 +1,4 @@
+
 <div class="page-header navbar navbar-static-top">
   <!-- BEGIN HEADER INNER -->
   <div class="page-header-inner">
@@ -23,13 +24,28 @@
           </span>
           </a>
         </li>
-<li class="classic-menu-dropdown">
+          <% @topics.each do |topic|%>
+            <li class="classic-menu-dropdown">
+              <a data-toggle="dropdown" href="javascript:;">
+                <%= topic.name%> <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu pull-left">
+                <% topic.subtopics.each do |subtopic|%>
+                  <li>
+                    <a href= <%="/subtopics/#{subtopic.id}"%>>
+                    <%= subtopic.name %></a>
+                  </li>
+                <% end%>
+              </ul>
+            </li>
+          <% end %>
+        <!-- <li class="classic-menu-dropdown">
           <a data-toggle="dropdown" href="javascript:;">
           Racing <i class="fa fa-angle-down"></i>
           </a>
           <ul class="dropdown-menu pull-left">
             <li>
-              <%= link_to "Strategies", subtopicspage_path%>
+              
             </li>
             <li>
               <a href="#">
@@ -86,7 +102,7 @@
                Time Management </a>
             </li>
           </ul>
-        </li>
+        </li> -->
       </ul>
     </div>
     <!-- END HORIZANTAL MENU -->

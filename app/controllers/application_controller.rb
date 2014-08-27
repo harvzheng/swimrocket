@@ -1,4 +1,12 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  include SessionsHelper
+	before_action :retrieve_topics
+    protect_from_forgery with: :exception
+    include SessionsHelper
+
+    private
+
+    def retrieve_topics
+    	@topics = Topic.all
+    end
+  
 end
