@@ -1,0 +1,9 @@
+<ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+	<li><a href="">Top</a></li>
+ 		<% @subtopic.subjects.each do |subject| %>
+			<li class = "peg-<%=subject.id%>"><a href="<%= subject.id%>"><%= subject.name%></a></li>
+ 		<%end%>
+	</ul>
+<script>
+  $(".peg-<%= @subject_id %>").addClass("active")
+</script>

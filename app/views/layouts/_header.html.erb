@@ -18,14 +18,14 @@
     <div class="hor-menu hor-menu-light hidden-sm hidden-xs">
       <ul class="nav navbar-nav">
         <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the horizontal opening on mouse hover -->
-        <li class="classic-menu-dropdown active">
+        <li class="classic-menu-dropdown tab-home">
           <a href="/">
           Home <span class="selected">
           </span>
           </a>
         </li>
           <% @topics.each do |topic|%>
-            <li class="classic-menu-dropdown">
+            <li class="classic-menu-dropdown tab-<%=topic.id%>">
               <a data-toggle="dropdown" href="javascript:;">
                 <%= topic.name%> <i class="fa fa-angle-down"></i>
               </a>
@@ -157,3 +157,7 @@
   </div>
   <!-- END HEADER INNER -->
 </div>
+
+<script>
+  $(".tab-<%= @section %>").addClass("active")
+</script>

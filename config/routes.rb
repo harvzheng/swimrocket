@@ -29,7 +29,9 @@ SampleApp::Application.routes.draw do
 
   # resources :subtopics
   get '/subtopics/:id' => 'subtopics#show'
-
+  get '/topics/:id' => 'topics#show'
+  get '/articles/:id' => 'articles#show'
+  get '/subjects/:id' => 'subjects#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
