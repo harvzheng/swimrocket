@@ -13,8 +13,8 @@
   text-decoration:none;
 }
 .content-description{
-  color:#B4B4B4;
-  font-size:10px;
+  color:#95a5a6;
+  font-size:12px;
 }
 .submitted-by{
   color: #B4B4B4;
@@ -28,4 +28,11 @@
 .thumbnail{
   height:100%;
   width:100%
+}
+.preview-title-link{
+  color: black;
+}
+.preview-title-link:hover{
+  color: #2c3e50;
+  text-decoration: none;
 }

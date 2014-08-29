@@ -5,5 +5,6 @@ class SubjectsController < ApplicationController
 		@subject_id = @subject.id
 		@topic = @subtopic.topic
 		@section = @topic.id
+		@articles = @subject.articles
 	end
 end

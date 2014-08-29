@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
 		@topic = Topic.find(params['id'])
 		@subtopics = @topic.subtopics
 		@section = @topic.id
+		@subjects = @topic.subjects
 	end
 
 end
