@@ -29,6 +29,7 @@ before_action :signed_in_user,
   end
 
   def edit
+    
   end
 
   def update

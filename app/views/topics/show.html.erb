@@ -12,12 +12,15 @@
   </ul>
 </div>
 <%@subtopics.each do |subtopic|%>
-	<h2><a href=<%="/subtopics/#{subtopic.id}"%>><%= subtopic.name%></a></h2>
+  <h2><a href=<%="/subtopics/#{subtopic.id}"%>><%= subtopic.name%></a></h2>
+  <%= link_to "delete", subtopic, method: :delete,
+                                data: { confirm: "You sure?" } %>
+  <a href="/subtopics/<%=subtopic.id%>/edit" class="btn btn-primary btn-sm" role="button">Edit subtopic</a>
   <div class="row">
     <%subtopic.articles.each do |article|%>
       <div class = "col-md-4">
         <div class="thumbnail">
-          <a href="/articles/<%=article.id%>"><img src="https://i.ytimg.com/vi/<%=article.link_id%>/mqdefault.jpg" style="height: 200px" alt="100%x200" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDIiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEyMSIgeT0iMTAwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjQyeDIwMDwvdGV4dD48L3N2Zz4=" style="height: 200px; width: 100%; display: block;"></a>
+          <a href="/articles/<%=article.id%>"><img src="https://i.ytimg.com/vi/<%=article.link_id%>/mqdefault.jpg" style="height: 200px" alt="100%x200"></a>
           <div class="caption">
             <a href = "/articles/<%=article.id%>" class = "preview-title-link"><h3><%= article.title%></h3></a>
             <p><%= truncate article.description, length: 255%></p>
@@ -28,3 +31,4 @@
     <% end %>
   </div>
 <%end%>
+<a href="/subtopics/new?topic_id=<%=@topic.id%>" class="btn btn-primary btn-lg" role="button">New subtopic</a>
