@@ -1,0 +1,13 @@
+<div class="row">
+
+  <div class="col-md-5">
+    <div class="panel panel-info">
+    <div class="panel-body">
+    <%= simple_form_for @subject do |f| %>
+      <%= f.input :name %>
+      <%= f.hidden_field :subtopic_id %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+  </div>
+</div>

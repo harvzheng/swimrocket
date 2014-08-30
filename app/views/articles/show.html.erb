@@ -31,7 +31,7 @@
   <iframe width="824" height="480" src="//www.youtube.com/embed/<%= @article.link_id%>" frameborder="0" allowfullscreen></iframe>
  </div>
  <div class="col-md-4">
-	  <p style="color:grey">Description:</p>
+	  <p style="color:grey">Description:<small class="right-btn"><a href="/articles/<%=@article.id%>/edit">edit</a></small></p>
 	  <p><%= @article.description%></p>
  </div>
 </div>

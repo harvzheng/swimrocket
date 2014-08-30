@@ -12,18 +12,19 @@
   </ul>
 </div>
 <%@subtopics.each do |subtopic|%>
-  <h2><a href=<%="/subtopics/#{subtopic.id}"%>><%= subtopic.name%></a></h2>
-  <%= link_to "delete", subtopic, method: :delete,
-                                data: { confirm: "You sure?" } %>
-  <a href="/subtopics/<%=subtopic.id%>/edit" class="btn btn-primary btn-sm" role="button">Edit subtopic</a>
+  <h2><a href=<%="/subtopics/#{subtopic.id}"%>><%= subtopic.name%></a>  
+    <small><%= link_to "delete", subtopic, method: :delete,
+                                data: { confirm: "You sure?" } %> |
+    <a href="/subtopics/<%=subtopic.id%>/edit">edit</a></small>
+  </h2>
   <div class="row">
-    <%subtopic.articles.each do |article|%>
+    <%subtopic.articles.take(3).each do |article|%>
       <div class = "col-md-4">
         <div class="thumbnail">
           <a href="/articles/<%=article.id%>"><img src="https://i.ytimg.com/vi/<%=article.link_id%>/mqdefault.jpg" style="height: 200px" alt="100%x200"></a>
           <div class="caption">
             <a href = "/articles/<%=article.id%>" class = "preview-title-link"><h3><%= article.title%></h3></a>
-            <p><%= truncate article.description, length: 255%></p>
+            <p class="article-description"><%= truncate article.description, length: 188%></p>
             <p><a href="/articles/<%=article.id%>" class="btn btn-primary btn-lg btn-block" role="button">View</a></p>
           </div>
         </div>

@@ -20,7 +20,7 @@
             <%=render 'nav'%>
             </div>
             <div class="col-md-9">
-            <h2 class="page-title">Top Articles and Videos in <%= @subtopic.name%></h2>
+            <h2 class="page-title">Top Articles and Videos in <%= @subtopic.name%><a href="/articles/new" class="btn btn-primary btn-sm right-btn" role="button">Create a new article</a></h2>
               <%= render "articles/article_preview"%>
             </div>
           </div>

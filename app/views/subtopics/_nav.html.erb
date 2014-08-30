@@ -1,8 +1,10 @@
 <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
 	<li class="label-top"><a href="/subtopics/<%=@subtopic.id%>">Top</a></li>
- 		<% @subtopic.subjects.each do |subject| %>
-			<li class = "label-<%=subject.id%>"><a href="/subjects/<%= subject.id%>"><%= subject.name%></a></li>
- 		<%end%>
+		<% @subtopic.subjects.each do |subject| %>
+		<li class = "label-<%=subject.id%>"><a href="/subjects/<%= subject.id%>"><%= subject.name%></a></li>
+
+	<%end%>
+  <li><a href="/subjects/new?subtopic_id=<%=@subtopic.id%>">Create a New Subject</a></li>
 	</ul>
 <script>
   $(".label-<%= @subject_id %>").addClass("active")
