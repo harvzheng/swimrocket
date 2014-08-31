@@ -25,7 +25,6 @@
  *= require metronic/admin/layout/css/layout.css
  *= require metronic/admin/layout/css/themes/light.css
  *= require metronic/admin/layout/css/custom.css
- *= require bootstrap.css
  */
 .page-bar{
 	padding: 10px;
