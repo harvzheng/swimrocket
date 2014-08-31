@@ -7,8 +7,8 @@
         </div>
         <div class="col-md-9">
           <a href="/articles/<%=article.id%>" class="content-title"><%=article.title%></a>
-              <%= link_to "delete", article, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+              <small><%= link_to "delete", article, method: :delete,
+                                  data: { confirm: "You sure?" } %></small>
           <p class="content-description"><%=article.description%></p>
         </div>
       </div>
