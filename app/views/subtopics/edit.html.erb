@@ -1,2 +1,23 @@
+<h3 class="page-title">Edit "<%=@subtopic.name%>"</h3>
+<div class="page-bar">
+            <ul class="page-breadcrumb" style="margin-right: 10px">
+              <li>
+                <i class="fa fa-home"></i>
+                <%= link_to "Home", root_path%>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href=<%="/topics/#{@subtopic.topic.id}"%>><%=@subtopic.topic.name%></a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href=<%="/subtopics/#{@subtopic.id}"%>><%=@subtopic.name%></a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="">Edit</a>
+              </li>
+            </ul>
+          </div>
 <h3 class="page-title">Edit Subtopic</h3>
 <%= render "subtopics/change_subtopic_form" %>

@@ -1,2 +1,30 @@
 <h3 class="page-title">Edit your article</h3>
+<div class="page-bar">
+            <ul class="page-breadcrumb" style="margin-right: 10px">
+              <li>
+                <i class="fa fa-home"></i>
+                <%= link_to "Home", root_path%>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href=<%="/topics/#{@article.subject.subtopic.topic.id}"%>><%=@article.subject.subtopic.topic.name%></a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href=<%="/subtopics/#{@article.subject.subtopic.id}"%>><%=@article.subject.subtopic.name%></a>
+                <i class = "fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href=<%="/subjects/#{@article.subject.id}"%>><%=@article.subject.name%></a>
+                <i class = "fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href=<%="/articles/#{@article.id}"%>><%=@article.title%></a>
+                <i class = "fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="">Edit</a>
+              </li>
+            </ul>
+          </div>
 <%= render "edit_article"%>
