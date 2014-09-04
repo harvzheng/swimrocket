@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
 
-
+  def index
+  @search = Article.search do
+    fulltext params[:search]
+  end
+    @articles = @search.results
+  end
 	def show
 		@article = Article.find(params['id'])
 		@subject = @article.subject
