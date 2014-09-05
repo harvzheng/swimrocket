@@ -12,7 +12,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'simple_form'
 gem 'sunspot_rails'
 gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
-
+gem 'progress_bar'
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
