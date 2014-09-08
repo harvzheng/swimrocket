@@ -63,37 +63,37 @@
       <!-- END RESPONSIVE MENU TOGGLER -->
       <!-- BEGIN TOP NAVIGATION MENU -->
       <div clas="col-md-3">
-      <div class="top-menu">
-        <ul class="nav navbar-nav pull-right">
-          <!-- BEGIN USER LOGIN DROPDOWN -->
-          <li class="dropdown dropdown-user">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-            <span class="username username-hide-on-mobile" style="padding: 0px 2px 0px 2px">
-            pieminion </span>
-            <i class="fa fa-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="extra_profile.html">
-                <i class="icon-user"></i> My Profile </a>
-              </li>
-              <li>
-                <a href="extra_lock.html">
-                <i class="icon-lock"></i> Settings </a>
-              </li>
-              <li class="divider">
-              </li>
-              <li>
-                <a href="login.html">
-                <i class="icon-key"></i> Log Out </a>
+        <% if signed_in? %>
+          <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+              <li class="dropdown dropdown-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <span class="username username-hide-on-mobile" style="padding: 0px 2px 0px 2px">
+                <%=@current_user.name%></span>
+                <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href=<%="users/#{@current_user.id}"%>>
+                    <i class="icon-user"></i> Profile </a>
+                  </li>
+                  <li>
+                    <a href=<%="#{edit_user_path(current_user)}"%>>
+                    <i class="icon-lock"></i> Settings </a>
+                  </li>
+                  <li class="divider">
+                  </li>
+                  <li>
+                    <a data-method="delete" href="/signout" rel="nofollow">
+                    <i class="icon-key"></i> Sign Out </a>
+                  </li>
+                </ul>
               </li>
             </ul>
-          </li>
-          <!-- END USER LOGIN DROPDOWN -->
-          <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-          <!-- END QUICK SIDEBAR TOGGLER -->
-        </ul>
-      </div>
+          </div>
+        <% else %>
+          <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
       </div>
       <!-- END TOP NAVIGATION MENU -->
     </div>
