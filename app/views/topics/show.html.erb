@@ -12,10 +12,12 @@
   </ul>
 </div>
 <%@subtopics.each do |subtopic|%>
-  <h2><a href=<%="/subtopics/#{subtopic.id}"%>><%= subtopic.name%></a>  
-    <small><%= link_to "delete", subtopic, method: :delete,
+  <h2><a href=<%="/subtopics/#{subtopic.id}"%>><%= subtopic.name%></a>
+    <% if current_user != nil && current_user.admin? && !current_user?(user)%>  
+      <small><%= link_to "delete", subtopic, method: :delete,
                                 data: { confirm: "You sure?" } %> |
-    <a href="/subtopics/<%=subtopic.id%>/edit">edit</a></small>
+      <a href="/subtopics/<%=subtopic.id%>/edit">edit</a></small>
+    <% end %>
   </h2>
   <div class="row">
     <%subtopic.articles.take(3).each do |article|%>
@@ -25,11 +27,13 @@
           <div class="caption">
             <a href = "/articles/<%=article.id%>" class = "preview-title-link"><h3><%= article.title%></h3></a>
             <p class="article-description"><%= truncate article.description, length: 188%></p>
-            <p><a href="/articles/<%=article.id%>" class="btn btn-primary btn-lg btn-block" role="button">View</a></p>
+            <p><a href= "/articles/<%=article.id%>" class="btn btn-primary btn-lg btn-block" role="button">View</a></p>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 <%end%>
-<a href="/subtopics/new?topic_id=<%=@topic.id%>" class="btn btn-primary btn-lg" role="button">New subtopic</a>
+<% if current_user != nil && current_user.admin? && !current_user?(user)%>
+  <a href="/subtopics/new?topic_id=<%=@topic.id%>" class="btn btn-primary btn-lg" role="button">New subtopic</a>
+<% end %>

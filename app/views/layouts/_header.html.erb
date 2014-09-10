@@ -74,7 +74,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href=<%="users/#{@current_user.id}"%>>
+                    <a href=<%="/users/#{@current_user.id}"%>>
                     <i class="icon-user"></i> Profile </a>
                   </li>
                   <li>
@@ -92,7 +92,10 @@
             </ul>
           </div>
         <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
+        <ul class="nav pull-right">
+          <li class=""><%= link_to "Sign in", signin_path %></li>
+
+        </ul>
         <% end %>
       </div>
       <!-- END TOP NAVIGATION MENU -->

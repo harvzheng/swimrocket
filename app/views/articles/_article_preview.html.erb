@@ -9,8 +9,10 @@
         </div>
         <div class="col-md-7">
           <a href="/articles/<%=article.id%>" class="content-title"><%=article.title%></a>
+          <% if current_user != nil && current_user.admin? && !current_user?(user) %>
               <small><%= link_to "delete", article, method: :delete,
                                   data: { confirm: "You sure?" } %></small>
+          <% end %>
           <p class="content-description"><%= truncate article.description, length: 188%></p>
         </div>
       </div>
