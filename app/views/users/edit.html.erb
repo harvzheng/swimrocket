@@ -1,15 +1,15 @@
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<h1 class="change-title">Update your profile</h1>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="col-md-6 col-md-offset-3">
     <%= simple_form_for @user do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.input :name%>
       <%= f.input :email%>
       <%= f.input :password %>
       <%= f.input :password_confirmation %>
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save changes", class: "btn-large btn-primary btn-margin" %>
     <% end %>
     <%= gravatar_for @user %>
     <a href="http://gravatar.com/emails" target="_blank">change</a>

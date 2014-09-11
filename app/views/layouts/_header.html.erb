@@ -92,10 +92,9 @@
             </ul>
           </div>
         <% else %>
-        <ul class="nav pull-right">
-          <li class=""><%= link_to "Sign in", signin_path %></li>
-
-        </ul>
+          <ul class="nav navbar-nav">
+            <li><a href="/signin" class="sign-in-btn">Sign In</a></li>
+          </ul>
         <% end %>
       </div>
       <!-- END TOP NAVIGATION MENU -->
