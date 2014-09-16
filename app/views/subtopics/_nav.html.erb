@@ -4,8 +4,10 @@
 		<li class = "label-<%=subject.id%>"><a href="/subjects/<%= subject.id%>"><%= subject.name%></a></li>
 
 	<%end%>
-  <li><a href="/subjects/new?subtopic_id=<%=@subtopic.id%>">Create a New Subject</a></li>
-	</ul>
+  <% if current_user != nil && current_user.admin? && !current_user?(user) %>
+    <li><a href="/subjects/new?subtopic_id=<%=@subtopic.id%>">Create a New Subject</a></li>
+  <% end %>
+</ul>
 <script>
   $(".label-<%= @subject_id %>").addClass("active")
 </script>
