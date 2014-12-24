@@ -29,7 +29,7 @@
         <% if current_user != nil %>
           <a href="/articles/new?subject_id=<%=@subject.id%>" class="right-btn">Create a New Article</a></small>
         <% end %>
-        <% if current_user != nil && current_user.admin? && !current_user?(user) %>
+        <% if current_user != nil && current_user.admin? %>
           <small><%= link_to "delete", @subject, method: :delete, data: { confirm: "You sure?" } %> |
           <a href="/subjects/<%=@subject.id%>/edit">edit</a></small></h3>
         <% end %>

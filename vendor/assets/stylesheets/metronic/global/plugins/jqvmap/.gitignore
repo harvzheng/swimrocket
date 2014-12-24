@@ -45,3 +45,6 @@ syntax: regexp
 .*.swp
 /nbproject/private/
 /nbproject/
+/tmp/
+/log/
+/solr/

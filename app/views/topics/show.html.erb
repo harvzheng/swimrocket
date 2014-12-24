@@ -13,7 +13,7 @@
 </div>
 <%@subtopics.each do |subtopic|%>
   <h2><a href=<%="/subtopics/#{subtopic.id}"%>><%= subtopic.name%></a>
-    <% if current_user != nil && current_user.admin? && !current_user?(user)%>  
+    <% if current_user != nil && current_user.admin? %>  
       <small><%= link_to "delete", subtopic, method: :delete,
                                 data: { confirm: "You sure?" } %> |
       <a href="/subtopics/<%=subtopic.id%>/edit">edit</a></small>
@@ -23,7 +23,7 @@
     <%subtopic.articles.take(3).each do |article|%>
       <div class = "col-md-4">
         <div class="thumbnail">
-          <a href="/articles/<%=article.id%>"><img src="https://i.ytimg.com/vi/<%=article.link_id%>/mqdefault.jpg" style="height: 200px" alt="100%x200"></a>
+          <a href="/articles/<%=article.id%>"><img src="https://i.ytimg.com/vi/<%=article.embed%>/mqdefault.jpg" style="height: 200px" alt="100%x200"></a>
           <div class="caption">
             <a href = "/articles/<%=article.id%>" class = "preview-title-link"><h3><%= article.title%></h3></a>
             <p class="article-description"><%= truncate article.description, length: 188%></p>
@@ -34,6 +34,6 @@
     <% end %>
   </div>
 <%end%>
-<% if current_user != nil && current_user.admin? && !current_user?(user)%>
+<% if current_user != nil && current_user.admin? %>
   <a href="/subtopics/new?topic_id=<%=@topic.id%>" class="btn btn-primary btn-lg" role="button">New subtopic</a>
 <% end %>

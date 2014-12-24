@@ -4,7 +4,7 @@
       <div class="panel-body">
       <%= simple_form_for @article do |f| %>
         <%= f.input :title, input_html: { maxlength: 50 } %>
-        <%= f.input :link_id %>
+        <%= f.input :link %>
         <%= f.input :description, as: :text, input_html: {maxlength: 1600} %>
         <%= f.association :subject %>
         <%= f.button :submit %>
