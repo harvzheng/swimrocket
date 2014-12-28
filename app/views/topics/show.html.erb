@@ -1,14 +1,8 @@
 <h3 class="page-title"><%=@topic.name%></h3>
 <div class="page-bar" style = "">
-  <ul class="page-breadcrumb" style="margin-right: 10px">
-    <li>
-      <i class="fa fa-home"></i>
-      <%= link_to "Home", root_path%>
-      <i class="fa fa-angle-right"></i>
-    </li>
-     <li>
-      <a href=""><%=@topic.name%></a>
-    </li>
+  <ul class="breadcrumb" style="margin-right: 10px">
+    <li><i class="fa fa-home"></i><%= link_to "Home", root_path%></i></li>
+     <li class="active"><a href=""><%=@topic.name%></a></li>
   </ul>
 </div>
 <%@subtopics.each do |subtopic|%>

@@ -1,26 +1,11 @@
 <h3 class="page-title">New article</h3>
 <div class="page-bar">
-  <ul class="page-breadcrumb" style="margin-right: 10px">
-    <li>
-      <i class="fa fa-home"></i>
-      <%= link_to "Home", root_path%>
-      <i class="fa fa-angle-right"></i>
-    </li>
-    <li>
-      <a href=<%="/topics/#{@article.subject.subtopic.topic.id}"%>><%=@article.subject.subtopic.topic.name%></a>
-      <i class="fa fa-angle-right"></i>
-    </li>
-    <li>
-      <a href=<%="/subtopics/#{@article.subject.subtopic.id}"%>><%=@article.subject.subtopic.name%></a>
-      <i class = "fa fa-angle-right"></i>
-    </li>
-    <li>
-      <a href="">Articles</a>
-      <i class = "fa fa-angle-right"></i>
-    </li>
-    <li>
-      <a href="">New</a>
-    </li>
+  <ul class="breadcrumb">
+    <li><i class="fa fa-home"></i><%= link_to "Home", root_path%></li>
+    <li><a href=<%="/topics/#{@article.subject.subtopic.topic.id}"%>><%=@article.subject.subtopic.topic.name%></a></li>
+    <li><a href=<%="/subtopics/#{@article.subject.subtopic.id}"%>><%=@article.subject.subtopic.name%></a></li>
+    <li><a href="">Articles</a></li>
+    <li class="active"><a href="">New</a></li>
   </ul>
 </div>
 <%= render "edit_article"%>

@@ -15,3 +15,5 @@
 //= require bootstrap.js
 //= require turbolinks
 //= require_tree .
+//= require startup-framework/jquery-1.10.2.min.js
+//= require startup-framework/startup-kit.js

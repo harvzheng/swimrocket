@@ -10,10 +10,10 @@
     <%= render 'layouts/shim' %>
   </head>
 
-  <body class="page-header-fixed page-quick-sidebar-over-content page-full-width">
+  <body class="" style = "background-color: #ecf0f1">
     <%= render 'layouts/header' %>
-    <div class="page-content-wrapper">
-      <div class = "page-content" style="min-height:426px">
+    <div class="">
+      <div class = "">
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, class: "alert alert-#{key}") %>
         <% end %>

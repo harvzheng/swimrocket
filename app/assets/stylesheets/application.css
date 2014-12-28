@@ -10,21 +10,12 @@
  *
  *= require_self
  *= require_tree .
- *= require metronic/global/plugins/font-awesome/css/font-awesome.min.css
- *= require metronic/global/plugins/simple-line-icons/simple-line-icons.min.css
- *= require metronic/global/plugins/bootstrap/css/bootstrap.min.css
- *= require metronic/global/plugins/uniform/css/uniform.default.css
- *= require metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css
- *= require metronic/global/plugins/gritter/css/jquery.gritter.css
- *= require metronic/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css
- *= require metronic/global/plugins/fullcalendar/fullcalendar/fullcalendar.css
- *= require metronic/global/plugins/jqvmap/jqvmap/jqvmap.css
- *= require metronic/admin/pages/css/tasks.css
- *= require metronic/global/css/components.css
- *= require metronic/global/css/plugins.css
- *= require metronic/admin/layout/css/layout.css
- *= require metronic/admin/layout/css/themes/light.css
- *= require metronic/admin/layout/css/custom.css
+ *= require bootstrap.min.css
+ *= require flat-ui-pro.css
+ *= require startup-framework/ui-kit/ui-kit-content/css/style.css
+ *= require startup-framework/ui-kit/ui-kit-header/css/style.css
+ *= require startup-framework/ui-kit/ui-kit-footer/css/style.css
+ *= require startup-framework/ui-kit/ui-kit-crew/css/style.css
  */
 .page-bar{
 	padding: 10px;

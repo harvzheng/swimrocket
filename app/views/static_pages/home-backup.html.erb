@@ -1,0 +1,46 @@
+<body>
+
+    <div class="container">
+      <div class="header">
+
+        <h3 class="text-muted" style = "padding: 20px"> </h3>
+      </div>
+
+      <div class="jumbotron" align = "center">
+        <h1>The Ultimate Swimming Resource</h1>
+        <p class="lead">SwimRocket takes all the best swimming content from around the web and displays it on one website, so you can spend less time looking, and more time training. The best part is, anyone can contribute.</p>
+      </div>
+      <section class="crew-4">
+        <div class="container">
+          <h3>Featured Videos<br>
+            A few of the videos on SwimRocket</h3>
+          <div class="members">
+            <% @articles.take(3).each do |article|%>
+              <div class="member-wrapper">
+                <div class="member">
+                  <div class="photo-wrapper">
+                    <div class="photo" style="background-image">
+                      <img src="https://i.ytimg.com/vi/<%=article.embed%>/mqdefault.jpg" alt="" style="display: none;">
+                    </div>
+                    <div class="overlay">
+                      <a href="/articles/<%=article.id%>"><span class="fa fa-play"></span></a>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <div class="name"><%=article.title%></div>
+                    <%=article.description%>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <!--/.container-->
+      </section>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  
+
+</body>

@@ -1,107 +1,63 @@
-<div class="row">
-  <div class="page-header navbar navbar-static-top">
-    <!-- BEGIN HEADER INNER -->
-    <div class="page-header-inner">
-      <!-- BEGIN LOGO -->
-      <div class="col-md-5">
-      <div class="page-logo">
-        <a href="/">
-        <img src="<%=image_path("logo.png")%>" alt="logo" class="logo">
-        </a>
-        <div class="menu-toggler sidebar-toggler hide">
-          <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-        </div>
-      </div>
-      <!-- END LOGO -->
-      <!-- BEGIN HORIZANTAL MENU -->
-      <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
-      <!-- DOC: This is desktop version of the horizontal menu. The mobile version is defined(duplicated) sidebar menu below. So the horizontal menu has 2 seperate versions -->
-      <div class="hor-menu hor-menu-light hidden-sm hidden-xs">
-        <ul class="nav navbar-nav">
-          <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the horizontal opening on mouse hover -->
-          <li class="classic-menu-dropdown tab-home">
-            <a href="/">
-            Home <span class="selected">
-            </span>
-            </a>
-          </li>
-            <% @topics.each do |topic|%>
-              <li class="classic-menu-dropdown tab-<%=topic.id%>">
-                <a data-toggle="dropdown" href="javascript:;">
-                  <%= topic.name%> <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="dropdown-menu pull-left">
-                  <% topic.subtopics.each do |subtopic|%>
-                    <li>
-                      <a href= <%="/subtopics/#{subtopic.id}"%>>
-                      <%= subtopic.name %></a>
-                    </li>
-                  <% end%>
-                </ul>
-              </li>
-            <% end %>
-        </ul>
-      </div>
-      </div>
-      <!-- END HORIZANTAL MENU -->
-      <!-- BEGIN HEADER SEARCH BOX -->
-      <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-      <div class="col-md-5">
-      <div class="search-box">
-        <!--<%= form_tag articles_path, :method => :get do %>
-          <p>
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "Search", :title => nil %>
-          </p>
-        <% end %>
-      </div>-->
-      </div>
-      <!-- END HEADER SEARCH BOX -->
-      <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-      <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-      </a>
-      <!-- END RESPONSIVE MENU TOGGLER -->
-      <!-- BEGIN TOP NAVIGATION MENU -->
-      <div clas="col-md-2">
-        <% if signed_in? %>
-          <div class="top-menu">
-            <ul class="nav navbar-nav pull-right">
-              <li class="dropdown dropdown-user">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                <span class="username username-hide-on-mobile" style="padding: 0px 2px 0px 2px">
-                <%=@current_user.name%></span>
-                <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href=<%="/users/#{@current_user.id}"%>>
-                    <i class="icon-user"></i> Profile </a>
-                  </li>
-                  <li>
-                    <a href=<%="#{edit_user_path(current_user)}"%>>
-                    <i class="icon-lock"></i> Settings </a>
-                  </li>
-                  <li class="divider">
-                  </li>
-                  <li>
-                    <a data-method="delete" href="/signout" rel="nofollow">
-                    <i class="icon-key"></i> Sign Out </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        <% else %>
-          <ul class="nav navbar-nav">
-            <li><a href="/signin" class="sign-in-btn">Sign In</a></li>
-          </ul>
-        <% end %>
-      </div>
-      <!-- END TOP NAVIGATION MENU -->
-    </div>
-    <!-- END HEADER INNER -->
-  </div>
-</div>
+
 <script>
   $(".tab-<%= @section %>").addClass("active")
-</script>
+</script>         
+<header class="header-3">
+  <div class="container">
+      <div class="row">
+          <nav class="navbar col-sm-12" role="navigation">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle"></button>
+                  <a class="brand" href="/"><img src="/assets/flat-ui-pro/icons/rocket.svg" width="50" height="50" alt=""> SwimRocket</a>
+              </div>
+              <div class="collapse navbar-collapse pull-right">
+                  <ul class="nav pull-left">
+                    <% @topics.each do |topic| %>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= topic.name %><span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <% topic.subtopics.each do |subtopic| %>
+                            <li><a href=<%="/subtopics/#{subtopic.id}"%>><%= subtopic.name %></a></li>
+                          <% end %>
+                        </ul>
+                      </li>
+                    <% end %>
+                    <% if signed_in? %>
+                      <li class="dropdown">
+                        <a href = "/user/<%=@current_user.id%>"class="dropdown-toggle" data-toggle = "dropdown" role = "button" aria-expanded="false">
+
+                          <%=@current_user.name%>
+                          </span>
+                          <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                              <li>
+                                <a href=<%="/users/#{@current_user.id}"%>>
+                                <i class="icon-user"></i> Profile </a>
+                              </li>
+                              <li>
+                                <a href=<%="#{edit_user_path(current_user)}"%>>
+                                <i class="icon-lock"></i> Settings </a>
+                              </li>
+                              <li class="divider">
+                              </li>
+                              <li>
+                                <a data-method="delete" href="/signout" rel="nofollow">
+                                <i class="icon-key"></i> Sign Out </a>
+                              </li>
+                            </ul>
+                  <% else %>
+                  </ul>
+
+                      <ul class="nav navbar-nav">
+                        <a class="btn btn-primary" href="<%=signin_path%>">SIGN IN</a>
+                      </ul>
+                    <% end %>
+                  </ul>
+                  <form class="navbar-form pull-left">      
+                  </form>
+              </div>
+          </nav>
+      </div>
+  </div>
+  <div class="header-background"></div>
+</header>

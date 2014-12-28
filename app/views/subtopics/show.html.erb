@@ -1,18 +1,9 @@
 <h3 class="page-title"><%=@subtopic.name%></h3>
 <div class="page-bar">
-  <ul class="page-breadcrumb" style="margin-right: 10px">
-    <li>
-      <i class="fa fa-home"></i>
-      <%= link_to "Home", root_path%>
-      <i class="fa fa-angle-right"></i>
-    </li>
-    <li>
-      <a href=<%="/topics/#{@topic.id}"%>><%=@topic.name%></a>
-      <i class="fa fa-angle-right"></i>
-    </li>
-    <li>
-      <a href=""><%=@subtopic.name%></a>
-    </li>
+  <ul class="breadcrumb" style="margin-right: 10px">
+    <li><i class="fa fa-home"></i><%= link_to "Home", root_path%></li>
+    <li><a href=<%="/topics/#{@topic.id}"%>><%=@topic.name%></a></li>
+    <li class="active"><a href=""><%=@subtopic.name%></a></li>
   </ul>
 </div>
 <div class = "row">
