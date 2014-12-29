@@ -13,7 +13,7 @@
   <body class="" style = "background-color: #ecf0f1">
     <%= render 'layouts/header' %>
     <div class="">
-      <div class = "">
+      <div class = "container">
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, class: "alert alert-#{key}") %>
         <% end %>

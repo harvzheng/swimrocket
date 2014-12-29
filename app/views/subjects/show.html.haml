@@ -1,0 +1,29 @@
+%h3.page-title= @subtopic.name
+.page-bar
+  %ul.breadcrumb
+    %li
+      %i.fa.fa-home
+      = link_to "Home", root_path
+    %li
+      %a{:href => "/topics/#{@topic.id}"}
+        #{@topic.name}
+    %li
+      %a{:href => "/subtopics/#{@subtopic.id}"}
+        #{@subtopic.name}
+    %li.active
+      #{@subject.name}
+.row
+  .col-md-3
+    = render "subtopics/nav"
+  .col-md-9
+    %h3.page-title
+      = @subject.name
+      - if current_user != nil
+        %small
+          %a.right-btn{:href => "/articles/new?subject_id=#{@subject.id}"} Create a New Article
+      - if current_user != nil && current_user.admin?
+        %small
+          = link_to "delete", @subject, method: :delete, data: { confirm: "You sure?" }
+          |
+          %a{:href => "/subjects/#{@subject.id}/edit"} edit
+    = render "articles/article_preview"

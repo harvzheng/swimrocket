@@ -1,0 +1,18 @@
+%h3.page-title= @subtopic.name
+.page-bar
+  %ul.breadcrumb
+    %li
+      %a
+        / %i.fa.fa-home
+        Home
+    %li
+      %a{:href => topic_path(@topic)} #{@topic.name}
+    %li.active
+      %a= @subtopic.name
+.row
+  .col-md-3
+    = render 'nav'
+  .col-md-9
+    %h2.page-title
+      Top Articles and Videos in #{@subtopic.name}
+    = render "articles/article_preview"

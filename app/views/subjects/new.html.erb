@@ -1,6 +1,6 @@
 <h3 class="page-title">Create a new subject </h3>
 <div class="page-bar">
-            <ul class="breadcrumb" style="margin-right: 10px">
+            <ul class="breadcrumb" >
               <li><i class="fa fa-home"></i><%= link_to "Home", root_path%></li>
               <li><a href=<%="/topics/#{@subject.subtopic.topic.id}"%>><%=@subject.subtopic.topic.name%></a></li>
               <li><a href=<%="/subtopics/#{@subject.subtopic.id}"%>><%=@subject.subtopic.name%></a></li>

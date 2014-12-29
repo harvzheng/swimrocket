@@ -1,6 +1,6 @@
 <h3 class="page-title"><%=@subtopic.name%></h3>
 <div class="page-bar">
-  <ul class="breadcrumb" style="margin-right: 10px">
+  <ul class="breadcrumb" >
     <li><i class="fa fa-home"></i><%= link_to "Home", root_path%></li>
     <li><a href=<%="/topics/#{@topic.id}"%>><%=@topic.name%></a></li>
     <li class="active"><a href=""><%=@subtopic.name%></a></li>
@@ -11,7 +11,7 @@
   <%=render 'nav'%>
   </div>
   <div class="col-md-9">
-  <h2 class="page-title">Top Articles and Videos in <%= @subtopic.name%></h2>
+  <h3 class="page-title">Top Articles and Videos in <%= @subtopic.name%></h2>
     <%= render "articles/article_preview"%>
   </div>
 </div>

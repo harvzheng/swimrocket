@@ -1,33 +1,54 @@
-<h3 class="page-title"><%=@topic.name%></h3>
-<div class="page-bar" style = "">
-  <ul class="breadcrumb" style="margin-right: 10px">
-    <li><i class="fa fa-home"></i><%= link_to "Home", root_path%></i></li>
-     <li class="active"><a href=""><%=@topic.name%></a></li>
+<h3 class="page-title">
+  <%= @topic.name %>
+</h3>
+<div class="page-bar">
+  <ul class="breadcrumb">
+    <li>
+      <i class="fa fa-home"></i>
+      <%= link_to "Home", root_path %>
+    </li>
+    <li class="active">
+      <a>
+        <%= @topic.name %>
+      </a>
+    </li>
   </ul>
 </div>
-<%@subtopics.each do |subtopic|%>
-  <h2><a href=<%="/subtopics/#{subtopic.id}"%>><%= subtopic.name%></a>
-    <% if current_user != nil && current_user.admin? %>  
-      <small><%= link_to "delete", subtopic, method: :delete,
-                                data: { confirm: "You sure?" } %> |
-      <a href="/subtopics/<%=subtopic.id%>/edit">edit</a></small>
+<% @subtopics.each do |subtopic| %>
+  <h2>
+    <a href="/subtopics/<%= subtopic.id %>"><%= subtopic.name %></a>
+    <% if current_user != nil && current_user.admin? %>
+      <small>
+        <%= link_to "delete", subtopic, method: :delete, data: { confirm: "You sure?" } %>
+        <a href="/subtopics/<%= subtopic.id %>/edit">edit</a>
+      </small>
     <% end %>
   </h2>
   <div class="row">
-    <%subtopic.articles.take(3).each do |article|%>
-      <div class = "col-md-4">
+    <% subtopic.articles.take(3).each do |article| %>
+      <div class="col-md-4">
         <div class="thumbnail">
-          <a href="/articles/<%=article.id%>"><img src="https://i.ytimg.com/vi/<%=article.embed%>/mqdefault.jpg" style="height: 200px" alt="100%x200"></a>
+          <a href="/articles/<%= article.id %>">
+            <img alt="100x200" src="https://i.ytimg.com/vi/<%= article.embed %>/mqdefault.jpg"/>
+          </a>
           <div class="caption">
-            <a href = "/articles/<%=article.id%>" class = "preview-title-link"><h3><%= article.title%></h3></a>
-            <p class="article-description"><%= truncate article.description, length: 188%></p>
-            <p><a href= "/articles/<%=article.id%>" class="btn btn-primary btn-lg btn-block" role="button">View</a></p>
+            <a href="/articles/<%= article.id %>">
+              <h5>
+                <%= article.title %>
+              </h5>
+            </a>
+            <p class="article-description">
+              <%= truncate article.description, length: 188 %>
+            </p>
+            <p>
+              <a class="btn btn-primary btn-lg btn-block" href="/articles/<%= article.id %>" role="button">View</a>
+            </p>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-<%end%>
+<% end %>
 <% if current_user != nil && current_user.admin? %>
-  <a href="/subtopics/new?topic_id=<%=@topic.id%>" class="btn btn-primary btn-lg" role="button">New subtopic</a>
+  <a class="btn btn-primary btn-lg" href="/subtopics/new?topic_id=<%= @topic.id %>" role="button">New subtopic</a>
 <% end %>
