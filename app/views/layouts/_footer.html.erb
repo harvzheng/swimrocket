@@ -1,10 +1,19 @@
-
-    </div>
-
-      <div class="bottom-menu">
-        <div class="container">
-        <p>© 2014 Harvey Zheng</p>
+<div class="bottom-menu bottom-menu-large bottom-menu-inverse">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-3">
+            <a href="/" class="bottom-menu-brand">SwimRocket</a>
+          </div>
+          <% @topics.each do |topic|%>
+            <div class="col-md-3 col-sm-3">
+              <a href="/topics/<%=topic.id%>"><h5 class="title"><%=topic.name.upcase%></h5></a>
+              <% topic.subtopics.each do |subtopic| %>
+                <ul class="bottom-menu-list">
+                  <li><a href="/subtopics/<%=subtopic.id%>"><%=subtopic.name%></a></li>
+                </ul>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
-
-    </div> 
+    </div>
