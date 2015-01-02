@@ -1,4 +1,7 @@
-
+.preview-styling{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .thumbnail-content{
   height: 126px;
   width:  224px;
@@ -35,4 +38,7 @@ thumbnail.video-thumbnail{
 }
 h2.title-no-margin{
   top-margin: none;
+}
+h3.page-title-padding{
+  padding-bottom:10px;
 }

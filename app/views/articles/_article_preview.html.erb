@@ -1,23 +1,23 @@
 <div class="row">
-<div class="col-md-12">
-<% @articles.each do |article| %>
-  <div class="row">
-    <div class = "col-md-12">
-      <div class = "row">
-        <div class = "col-md-3">
-          <a href="/articles/<%=article.id%>" class="content-title"><img class = "thumbnail-content"src="https://i.ytimg.com/vi/<%=article.embed%>/mqdefault.jpg"/></a>
-        </div>
-        <div class="col-md-7">
-          <a href="/articles/<%=article.id%>" class="content-title"><%=article.title%></a>
-          <% if current_user != nil && current_user.admin? %>
-              <small><%= link_to "delete", article, method: :delete,
-                                  data: { confirm: "You sure?" } %></small>
-          <% end %>
-          <p class="content-description"><%= truncate article.description, length: 188%></p>
+  <div class="col-md-12">
+    <% @articles.each do |article| %>
+      <div class="row">
+        <div class = "col-md-12">
+          <div class = "row preview-styling">
+            <div class = "col-md-3">
+              <a href="/articles/<%=article.id%>" class="content-title"><img class = "thumbnail-content"src="https://i.ytimg.com/vi/<%=article.embed%>/mqdefault.jpg"/></a>
+            </div>
+            <div class="col-md-7">
+              <a href="/articles/<%=article.id%>" class="content-title"><%=article.title%></a>
+              <% if current_user != nil && current_user.admin? %>
+                  <small><%= link_to "delete", article, method: :delete,
+                                      data: { confirm: "You sure?" } %></small>
+              <% end %>
+              <p class="content-description"><%= truncate article.description, length: 188%></p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
-</div>
 </div>

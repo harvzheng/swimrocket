@@ -11,8 +11,8 @@
   %body
     = render 'layouts/header'
     %div
-      .container
+      .container{:style => "padding-top: 20px; padding-bottom: 20px"}
         - flash.each do |key, value|
           = content_tag(:div, value, class: "alert alert-#{key}")
         = yield
-    = render 'layouts/footer'
+      = render 'layouts/footer'

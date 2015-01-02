@@ -1,8 +1,8 @@
-<ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
+<ul class="nav nav-list" style="max-width: 300px;">
+  <li class = "nav-header">Subjects</li>
 	<li class="label-top"><a href="/subtopics/<%=@subtopic.id%>">Top</a></li>
 		<% @subtopic.subjects.each do |subject| %>
 		<li class = "label-<%=subject.id%>"><a href="/subjects/<%= subject.id%>"><%= subject.name%></a></li>
-
 	<%end%>
   <% if current_user != nil && current_user.admin? %>
     <li><a href="/subjects/new?subtopic_id=<%=@subtopic.id%>">Create a New Subject</a></li>
