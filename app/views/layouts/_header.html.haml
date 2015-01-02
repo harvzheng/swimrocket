@@ -1,0 +1,49 @@
+:javascript
+  $(".tab-#{@section}").addClass("active")
+%header.header-20
+  .container
+    .row
+      %nav.navbar.col-sm-12{:role => "navigation"}
+        .navbar-header
+          %button.navbar-toggle{:type => "button"}
+          %a.brand{:href => "/"}
+            %img{:alt => "", :height => "50", :src => "/assets/flat-ui-pro/icons/rocket.svg", :width => "50"}/
+            SwimRocket
+        .collapse.navbar-collapse.pull-right
+          %ul.nav.pull-left
+            - @topics.each do |topic|
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  = topic.name
+                  %span.caret
+                %ul.dropdown-menu{:role => "menu"}
+                  - topic.subtopics.each do |subtopic|
+                    %li
+                      %a{:href => "/subtopics/#{subtopic.id}"}
+                        #{subtopic.name}
+            - if signed_in?
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "/user/#{@current_user.id}", :role => "button"}
+                  = @current_user.name
+                  %i.fa.fa-angle-down
+                %ul.dropdown-menu{:role => "menu"}
+                  %li
+                    %a{:href => "/users/#{@current_user.id}"}
+                      %i.icon-user
+                      Profile
+                  %li
+                    %a{:href => "#{edit_user_path(current_user)}"}
+                      %i.icon-lock
+                      Settings
+                  %li.divider
+
+                  %li
+                    %a{"data-method" => "delete", :href => "/signout", :rel => "nofollow"}
+                      %i.icon-key
+                      Sign Out
+            - else
+              %li
+                %a{:href => signin_path} Sign In
+          %ul.nav.navbar-nav
+          %form.navbar-form.pull-left
+  .header-background
