@@ -6,7 +6,7 @@
         <%= f.input :title, input_html: { maxlength: 50 } %>
         <%= f.input :link %>
         <%= f.input :description, as: :text, input_html: {maxlength: 1600} %>
-        <%= f.association :subject %>
+        <%= f.association :subject, collection: Subject.where(subtopic_id: @article.subject.subtopic_id)%>
         <%= f.button :submit %>
       <% end %>
     </div>

@@ -9,7 +9,7 @@
       <i class="fa fa-home"></i>
       <a href="/">Home</a>
     </li>
-    <li><a href=<%="/topics/#{@topic.id}"%>><%=@topic.name%></a></li>
+    <li><a href=<%="/topics/#{@article.subject.subtopic.topic.id}"%>><%=@topic.name%></a></li>
     <li><a href=<%="/subtopics/#{@subtopic.id}"%>><%=@subtopic.name%></a></li>
     <li><a href=<%="/subjects/#{@subject.id}"%>><%=@subject.name%></a></li>
     <li class="active"><a href=<%="/articles/#{@article.id}"%>><%=@article.title%></a></li>

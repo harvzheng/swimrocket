@@ -20,10 +20,10 @@
       = @subject.name
       - if current_user != nil
         %small
-          %a.right-btn{:href => "/articles/new?subject_id=#{@subject.id}"} Create a New Article
+          %a.btn.btn-embossed.btn-primary{:href => "/articles/new?subject_id=#{@subject.id}"} Create a New Article
       - if current_user != nil && current_user.admin?
         %small
-          = link_to "delete", @subject, method: :delete, data: { confirm: "You sure?" }
+          = link_to "delete", @subject, method: :delete, data: { confirm: "You sure?"}, class: "btn btn-danger"
           |
-          %a{:href => "/subjects/#{@subject.id}/edit"} edit
+          %a.btn.btn-info{:href => "/subjects/#{@subject.id}/edit"} edit
     = render "articles/article_preview"
