@@ -1,0 +1,47 @@
+%section.content-35
+  %ul.content-35-slider
+    %li.content-35-slider-item
+      .background.bread
+        .container
+          .row
+            .col-sm-4
+              %div
+                %img{:alt => "", :src => "https://upload.wikimedia.org/wikipedia/commons/a/ae/Swimming_pool_with_lane_ropes_in_place.jpg"}/
+      .container
+        .row
+          .col-sm-5.col-sm-offset-5
+            %h2 The Ultimate Swimming Resource
+            %p.lead SwimRocket gathers all of the best swimming videos and puts them in one place, so you can spend more time improving, and less time searching
+            .row.columns
+              - @articles.where(hero: true).take(2).each do |article|
+                .col-sm-6
+                  %a{:href => "/articles/#{article.id}"}
+                    %img{:alt => "", :src => "https://i.ytimg.com/vi/#{article.embed}/mqdefault.jpg"}/
+                    %b
+                      %strong= article.title
+                    %span= truncate article.description, length:100
+.delimiter
+.container
+  %section.crew-4
+    .container
+      %h3
+        Featured Videos
+        %br/
+        A few of the videos on SwimRocket
+      .members
+        - @articles.where(hero: false).take(9).each do |article|
+          .member-wrapper
+            .member
+              .photo-wrapper
+                .photo{:style => "background-image: url(https://i.ytimg.com/vi/#{article.embed}/mqdefault.jpg)"}
+                  %img{:alt => "", :src => "https://i.ytimg.com/vi/#{article.embed}/mqdefault.jpg", :style => "display:none"}
+                .overlay
+                  %a{:href => "/articles/#{article.id}"}
+                    %span.fa.fa-play
+              .info
+                .name= article.title
+                %p.content-description= truncate article.description, length: 30
+/
+  Bootstrap core JavaScript
+  \==================================================
+/ Placed at the end of the document so the pages load faster
