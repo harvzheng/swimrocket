@@ -10,8 +10,8 @@
     = render 'layouts/shim'
   %body
     = render 'layouts/header'
-    %div
-      .container{:style => "padding-top: 20px; padding-bottom: 20px"}
+    %div.main-container
+      .container
         - flash.each do |key, value|
           = content_tag(:div, value, class: "alert alert-#{key}")
         - if @section != 'home'
