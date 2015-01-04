@@ -1,0 +1,44 @@
+.page-bar
+  %ul.breadcrumb
+    %li
+      %i.fa.fa-home
+      = link_to "Home", root_path
+    %li.active
+      %a
+        = @topic.name
+%h1.page-title.page-title-padding
+  = @topic.name
+  - if current_user != nil && current_user.admin?
+    %a.btn.btn-primary.btn-embossed.btn-lg.float-right-btn{:href => "/subtopics/new?topic_id=#{@topic.id}", :role => "button"} New subtopic
+- @subtopics.each do |subtopic|
+  %h3
+    = subtopic.name
+  .row.columns.content-35
+    -subtopic.articles.take(4).each do |article|
+      .col-sm-3
+        %a{:href => "/articles/#{article.id}"}
+          %img{:alt => "", :src => "https://i.ytimg.com/vi/#{article.embed}/mqdefault.jpg"}
+          %b
+            %h5
+              %a{:href => "/articles/#{article.id}"}
+                = article.title
+          %span
+            = truncate article.description, length: 136
+  / - @subtopics.each do |subtopic|
+  /   %h3
+  /     %a{:href => "/subtopics/#{subtopic.id}"}= subtopic.name
+  /     - if current_user != nil && current_user.admin?
+  /       %small.float-right-btn
+  /         = link_to "delete", subtopic, method: :delete, data: { confirm: "You sure?" }
+  /         |
+  /         %a{:href => "/subtopics/#{subtopic.id}/edit"} edit
+  /   .row.columns
+  /     / - @articles.where(sub: subject.subtopic_id).each do |article|
+  /     /   .col-sm-3
+  /     /     %a{:href => "/articles/#{article.id}"}
+  /     /       %img{:alt => "", :src => "https://i.ytimg.com/vi/#{article.embed}/mqdefault.jpg"}/
+  /     /       %b
+  /     /         %strong= article.title
+  /     /       %span= truncate article.description, length:100
+  / - if current_user != nil && current_user.admin?
+  /   %a.btn.btn-primary.btn-lg{:href => "/subtopics/new?topic_id=#{@topic.id}", :role => "button"} New subtopic
