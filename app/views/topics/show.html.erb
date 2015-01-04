@@ -1,6 +1,3 @@
-<h3 class="page-title">
-  <%= @topic.name %>
-</h3>
 <div class="page-bar">
   <ul class="breadcrumb">
     <li>
@@ -14,8 +11,11 @@
     </li>
   </ul>
 </div>
+<h1 class="page-title page-title-padding">
+  <%= @topic.name %>
+</h1>
 <% @subtopics.each do |subtopic| %>
-  <h2>
+  <h3>
     <a href="/subtopics/<%= subtopic.id %>"><%= subtopic.name %></a>
     <% if current_user != nil && current_user.admin? %>
       <small>
@@ -23,7 +23,7 @@
         <a href="/subtopics/<%= subtopic.id %>/edit">edit</a>
       </small>
     <% end %>
-  </h2>
+  </h3>
   <div class="row">
     <% subtopic.articles.take(3).each do |article| %>
       <div class="col-md-4">

@@ -10,8 +10,11 @@
             <div class="col-md-7">
               <a href="/articles/<%=article.id%>" class="content-title"><%=article.title%></a>
               <% if current_user != nil && current_user.admin? %>
-                  <small><%= link_to "delete", article, method: :delete,
-                                      data: { confirm: "You sure?" } %></small>
+                  <small class="float-right-btn"><%= link_to "delete", article, method: :delete,
+                                      data: { confirm: "You sure?" } %>
+                  |
+                  <a href="/articles/<%=article.id%>/edit">edit</a>
+                  </small>
               <% end %>
               <p class="content-description"><%= truncate article.description, length: 188%></p>
             </div>

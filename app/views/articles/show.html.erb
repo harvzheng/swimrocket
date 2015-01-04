@@ -1,8 +1,3 @@
-<div class="row">
-  <div class="col-md-12">
-    <h3 class="page-title"><%=@article.title%></h3>
-  </div>
-</div>
 <div class="page-bar">
   <ul class="breadcrumb">
     <li>
@@ -16,11 +11,16 @@
   </ul>
 </div>
 <div class="row">
+  <div class="col-md-12">
+    <h3 class="page-title"><%=@article.title%></h3>
+  </div>
+</div>
+<div class="row">
  <div class="col-md-7">
   <iframe width="640" height="360" src="//www.youtube.com/embed/<%= @article.embed%>" frameborder="0" allowfullscreen></iframe>
  </div>
  <div class="col-md-4">
-	  <p style="color:grey">Description:<small class="right-btn"><a href="/articles/<%=@article.id%>/edit">edit</a></small></p>
+	  <p>Description:<small class="right-btn"><a class="float-right-btn" href="/articles/<%=@article.id%>/edit">edit</a></small></p>
 	  <p><%= @article.description%></p>
  </div>
 </div>
