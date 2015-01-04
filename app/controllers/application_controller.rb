@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
     def retrieve_articles
         @articles = Article.all
     end
+
 end

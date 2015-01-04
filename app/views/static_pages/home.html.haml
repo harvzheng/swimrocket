@@ -28,19 +28,22 @@
         Featured Videos
         %br/
         A few of the videos on SwimRocket
-      .members
-        - @articles.where(hero: false).take(9).each do |article|
-          .member-wrapper
-            .member
-              .photo-wrapper
-                .photo{:style => "background-image: url(https://i.ytimg.com/vi/#{article.embed}/mqdefault.jpg)"}
-                  %img{:alt => "", :src => "https://i.ytimg.com/vi/#{article.embed}/mqdefault.jpg", :style => "display:none"}
-                .overlay
-                  %a{:href => "/articles/#{article.id}"}
-                    %span.fa.fa-play
-              .info
-                .name= article.title
-                %p.content-description= truncate article.description, length: 30
+      - @topics.each do |topic|
+        %h4.page-title
+          = topic.name
+        .members
+          - topic.articles.where(hero: false).take(3).each do |article|
+            .member-wrapper
+              .member
+                .photo-wrapper
+                  .photo{:style => "background-image: url(https://i.ytimg.com/vi/#{article.embed}/mqdefault.jpg)"}
+                    %img{:alt => "", :src => "https://i.ytimg.com/vi/#{article.embed}/mqdefault.jpg", :style => "display:none"}
+                  .overlay
+                    %a{:href => "/articles/#{article.id}"}
+                      %span.fa.fa-play
+                .info
+                  .name= article.title
+                  %p.content-description= truncate article.description, length: 30
 /
   Bootstrap core JavaScript
   \==================================================
