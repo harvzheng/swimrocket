@@ -54,8 +54,8 @@
 @font-face {
   font-family: 'Flat-UI-Pro-Icons';
 
-  src: url('/assets/glyphicons/flat-ui-pro-icons-regular.eot');
-  src: url('/assets/glyphicons/flat-ui-pro-icons-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons/flat-ui-pro-icons-regular.woff') format('woff'), url('/assets/glyphicons/flat-ui-pro-icons-regular.ttf') format('truetype'), url('/assets/glyphicons/flat-ui-pro-icons-regular.svg#flat-ui-pro-icons-regular') format('svg');
+  src: url('/glyphicons/flat-ui-pro-icons-regular.eot');
+  src: url('/glyphicons/flat-ui-pro-icons-regular.eot?#iefix') format('embedded-opentype'), url('/glyphicons/flat-ui-pro-icons-regular.woff') format('woff'), url('/glyphicons/flat-ui-pro-icons-regular.ttf') format('truetype'), url('/glyphicons/flat-ui-pro-icons-regular.svg#flat-ui-pro-icons-regular') format('svg');
   }
 [class^="fui-"],
 [class*="fui-"] {
