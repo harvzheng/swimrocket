@@ -16,10 +16,12 @@
   </div>
 </div>
 <div class="row">
- <div class="col-md-7">
-  <iframe width="640" height="360" src="//www.youtube.com/embed/<%= @article.embed%>" frameborder="0" allowfullscreen></iframe>
+ <div class="col-md-7 col-sm-6">
+  <div class="vid">
+    <iframe width="640" height="360" src="//www.youtube.com/embed/<%= @article.embed%>" frameborder="0" allowfullscreen></iframe>
+  </div>
  </div>
- <div class="col-md-4">
+ <div class="col-md-4 col-sm-6">
 	  <p>Description:<small class="right-btn"><a class="float-right-btn" href="/articles/<%=@article.id%>/edit">edit</a></small></p>
 	  <p><%= @article.description%></p>
  </div>

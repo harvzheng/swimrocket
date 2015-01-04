@@ -1,6 +1,9 @@
 !!!
 %html
   %head
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    %meta{:content => "black", :name => "apple-mobile-web-app-status-bar-style"}
     %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}/
     %title= full_title(yield(:title))
@@ -11,13 +14,15 @@
     = csrf_meta_tags
     = render 'layouts/shim'
   %body
-    = render 'layouts/header'
-    %div.main-container
-      .container
-        - flash.each do |key, value|
-          = content_tag(:div, value, class: "alert alert-#{key}")
-        - if @section != 'home'
+    .page-wrapper
+      
+      = render 'layouts/header'
+      %div.main-container
+        .container
+          - flash.each do |key, value|
+            = content_tag(:div, value, class: "alert alert-#{key}")
+          - if @section != 'home'
+            = yield
+        - if @section == 'home'
           = yield
-      - if @section == 'home'
-        = yield
-    = render 'layouts/footer' 
+      = render 'layouts/footer' 

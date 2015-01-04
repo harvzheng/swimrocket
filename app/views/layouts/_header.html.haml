@@ -13,14 +13,18 @@
           %ul.nav.pull-left
             - @topics.each do |topic|
               %li.dropdown
-                %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                %a.dropdown-toggle{:href => topic_path(topic)}
                   = topic.name
-                  %span.caret
-                %ul.dropdown-menu{:role => "menu"}
-                  - topic.subtopics.each do |subtopic|
-                    %li
-                      %a{:href => "/subtopics/#{subtopic.id}"}
-                        #{subtopic.name}
+                        
+                / %a.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                /   = topic.name
+                /   %span.caret
+                / %ul.dropdown-menu{:role => "menu"}
+                /   - topic.subtopics.each do |subtopic|
+                /     %li
+                /       %a{:href => "/subtopics/#{subtopic.id}"}
+                /         #{subtopic.name}
+
             - if signed_in?
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "/user/#{@current_user.id}", :role => "button"}

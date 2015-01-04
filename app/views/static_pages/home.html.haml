@@ -30,7 +30,8 @@
         A few of the videos on SwimRocket
       - @topics.each do |topic|
         %h4.page-title
-          = topic.name
+          %a{:href => "/topics/#{topic.id}"}
+            = topic.name
         .members
           - topic.articles.where(hero: false).take(3).each do |article|
             .member-wrapper
@@ -42,8 +43,9 @@
                     %a{:href => "/articles/#{article.id}"}
                       %span.fa.fa-play
                 .info
-                  .name= article.title
-                  %p.content-description= truncate article.description, length: 30
+                  %a{:href => "/articles/article.id"}
+                    .name= article.title
+                    %p.content-description= truncate article.description, length: 30
 /
   Bootstrap core JavaScript
   \==================================================
