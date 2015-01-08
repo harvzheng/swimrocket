@@ -1,0 +1,15 @@
+- provide(:title, @user.name)
+.row
+  %section
+    %h1
+      = gravatar_for @user
+      = @user.name
+  %section
+    %h4
+      %a{:href => "#{edit_user_path(current_user)}"}
+        %i.fa.fa-cog
+        Settings
+      %br
+      %a{"data-method" => "delete", :href => "/signout", :rel => "nofollow"}
+        %i.fa.fa-lock
+        Sign Out
